@@ -4,6 +4,11 @@ import axios from "axios";
 
 const BASE_URL = "https://deckofcardsapi.com/api/deck";
 
+/** Get a deck of cards.
+ *
+ * App -> DeckOfCards -> { DrawCard }
+ */
+
 function DeckOfCards() {
   const [deck, setDeck] = useState("");
 
