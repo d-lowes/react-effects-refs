@@ -1,20 +1,20 @@
 import { React, useState, useEffect } from "react";
-import DrawCard from "./Card";
+import DrawCard from "./DrawCard";
 import axios from "axios";
 
-const GET_DECK_URL = "https://deckofcardsapi.com/api/deck/new/";
+const BASE_URL = "https://deckofcardsapi.com/api/deck";
 
 function DeckOfCards() {
   const [deck, setDeck] = useState("");
 
   useEffect(function fetchAndSetDeck() {
     async function fetchDeck() {
-      const response = await axios.get(GET_DECK_URL);
+      const response = await axios.get(`${BASE_URL}/new/`);
       const newDeck = response.data;
       setDeck(newDeck);
     }
     fetchDeck();
-  }, [ ]);
+  }, []);
 
 
   return (
@@ -24,4 +24,5 @@ function DeckOfCards() {
   );
 }
 
+export { BASE_URL };
 export default DeckOfCards;
